@@ -39,7 +39,13 @@ To create collections inside `fly-time` database:
 
 `db._createDocumentCollection('airports')`
 
-`db._createEdgeCollection()('flights')`
+`db._createEdgeCollection('flights')`
+
+To create index for efficient retrieval:
+
+`db.flights.ensureIndex({type: "persistent", fields:["_from", "Year", "Month", "Day"]})`
+
+Note: The above fields will obviously vary based on the dataset that you are using or the names of columns in your collection. 
 
 If you are importing data from CSV files, use the following commands to populate the `airports` and `flights` collections in the `fly-time` database. 
 
