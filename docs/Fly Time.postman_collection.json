@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "e220c4cf-2682-4ce0-aee2-daa497223b13",
+		"name": "Fly Time",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Flight",
+			"item": [
+				{
+					"name": "Get Lowest Travel Time Flights",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"from\": \"BIS\",\r\n\t\"to\": \"JFK\",\r\n\t\"date\": \"2008/01/15\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{flights-api-url}}/flight/v1/get_lowest_travel_time_flights",
+							"host": [
+								"{{flights-api-url}}"
+							],
+							"path": [
+								"flight",
+								"v1",
+								"get_lowest_travel_time_flights"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5ea76176-f00a-4a16-9aea-03c12385fe50",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c8ac3e8-4093-425f-b883-f03273ff5561",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

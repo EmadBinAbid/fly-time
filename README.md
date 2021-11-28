@@ -24,7 +24,7 @@ to be filled in later
 
 ## Postman Collection
 
-to be filled in later
+You can find sample API calls for each of the endpoints mentioned above in the **Fly Time** Postman collection inside `docs` directory. You only need to import the collection in Postman and you will be able to view and execute API calls all at one place.
 
 ## Maintainers
 
