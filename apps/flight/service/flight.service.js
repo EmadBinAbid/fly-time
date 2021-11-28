@@ -41,6 +41,7 @@ exports.getFlightsWithLowestTravelTime = function(fromAirport, toAirport, dateOf
         });
       })
     .catch((err) => {
+      console.log(`[ERROR] ${err}`)
         return err
     })
 }
