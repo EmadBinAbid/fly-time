@@ -4,7 +4,7 @@ var arangoDbConfig = require('./config')
 exports.getArangoDBInstance = function() {
     const host = process.env.ARANGO_DB_HOST ? process.env.ARANGO_DB_HOST : arangoDbConfig.db.host
     const port = process.env.ARANGO_DB_PORT ? process.env.ARANGO_DB_PORT : arangoDbConfig.db.port
-    const url = `${host}/${port}`
+    const url = `http://${host}:${port}`
 
     const db = new arangojs.Database({
         url: url
