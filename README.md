@@ -51,8 +51,10 @@ If you are importing data from CSV files, use the following commands to populate
 - ARANGO_DB_USER
 - ARANGO_DB_PASSWORD
 - ARANGO_DB_NAME
+- ARANGO_DB_HOST
+- ARANGO_DB_PORT
 
-If these environment variables are not set, **Fly Time** will default to `root`, `root`, and `fly-time` for ArangoDB user, password, and database name respectively. 
+If these environment variables are not set, **Fly Time** will default to `root`, `root`, `fly-time`, `localhost`, and `8529` for ArangoDB user, password, database name, host, and port respectively. 
 
 After setting up the database and environment, we have the **Fly Time** infrastructure ready. Navigate inside the repository's root directory and run `node index.js` to start the **Fly Time**'s flight API server.
 
