@@ -4,6 +4,7 @@
   "description": "\"Fly Time\" service is a one-stop-solution for your air travelling queries",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Emad Bin Abid",
