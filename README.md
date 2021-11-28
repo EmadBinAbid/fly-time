@@ -30,11 +30,15 @@ Once ArangoDB is installed and up-and-running, we need to set up a dedicated dat
 To create a dedicated database and collections inside it, move inside the Arango shell by running   `arangosh` in your terminal window. 
 
 To create a new database:
+
 `db._createDatabase('fly-time')`
 
 To create collections inside `fly-time` database:
+
 `db._useDatabase('fly-time')`
+
 `db._createDocumentCollection('airports')`
+
 `db._createEdgeCollection()('flights')`
 
 If you are importing data from CSV files, use the following commands to populate the `airports` and `flights` collections in the `fly-time` database. 
