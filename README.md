@@ -48,18 +48,34 @@ If you are importing data from CSV files, use the following commands to populate
 
 **Fly Time** does not restrict you to strictly use its recommended database instance i.e. `fly-time`. You can configure your own instance by setting up the following environment variables.
 
-- ARANGO_DB_USER
-- ARANGO_DB_PASSWORD
-- ARANGO_DB_NAME
-- ARANGO_DB_HOST
-- ARANGO_DB_PORT
+- `ARANGO_DB_USER`
+- `ARANGO_DB_PASSWORD`
+- `ARANGO_DB_NAME`
+- `ARANGO_DB_HOST`
+- `ARANGO_DB_PORT`
 
 If these environment variables are not set, **Fly Time** will default to `root`, `root`, `fly-time`, `localhost`, and `8529` for ArangoDB user, password, database name, host, and port respectively. 
 
 After setting up the database and environment, we have the **Fly Time** infrastructure ready. Navigate inside the repository's root directory and run `node index.js` to start the **Fly Time**'s flight API server.
 
 ## Fly Time Setup With Docker
-to be filled in later
+**Fly Time** is Docker compatible. You can easily create a Docker container using `docker-compose.yml` file and ship that container to production environment without having to locally setup the entire project. 
+
+Note: If you have the ArangoDB instance running locally, make sure to set the environment variable `ARANGO_DB_HOST` as `host.docker.internal`.
+
+Clone the repository: 
+
+`git clone https://github.com/EmadBinAbid/fly-time`
+
+Build the container:
+
+`docker-compose build`
+
+Run the container:
+
+`docker-compose up -d`
+
+Note: **Fly Time** does not support automatic deployment of containers for now. But, we have an issue open on it and will soon come up with a Kubernetes infrastructure that will allow the installation of `fly-time` as well as `db` containers in a fully-managed orchestrated environment. 
 
 ## Postman Collection
 You can find sample API calls for each of the endpoints mentioned above in the **Fly Time** Postman collection inside `docs` directory. You only need to import the collection in Postman and you will be able to view and execute API calls all at one place.
