@@ -17,7 +17,40 @@ Following are the API endpoints that **Fly Time** API solution currently support
 - ArangoDB
 
 ## Local Fly Time Setup
-to be filled in later
+To set up **Fly Time** and run it locally, clone the repository in any directory, say `~/code`.
+
+`git clone https://github.com/EmadBinAbid/fly-time`
+
+Navigate into repository's root folder and install required node packages by running `npm install`.
+
+If you already have ArangoDB installed then you can skip this part. If not, go ahead and download it for your environment from https://www.arangodb.com/download-major. Once downloaded, follow the steps mentioned in the corresponding documentation link to install and set up ArangoDB locally in your environment. 
+
+Once ArangoDB is installed and up-and-running, we need to set up a dedicated database with necessary collections and populate the collections with data. The data that is supplied to collections should be in specific format in order for Fly Time to understand, compute, and interpret the results properly. You may find sample CSV files for data population inside collection here in this Google Drive folder: https://drive.google.com/file/d/1prwED7qeSetpQAzSaavgqNWb__uAOCOT.
+
+To create a dedicated database and collections inside it, move inside the Arango shell by running   `arangosh` in your terminal window. 
+
+To create a new database:
+`db._createDatabase('fly-time')`
+
+To create collections inside `fly-time` database:
+`db._useDatabase('fly-time')`
+`db._createDocumentCollection('airports')`
+`db._createEdgeCollection()('flights')`
+
+If you are importing data from CSV files, use the following commands to populate the `airports` and `flights` collections in the `fly-time` database. 
+
+`arangoimport --file "airports.csv" --type csv --collection "airports" --server.database "fly-time"`
+`arangoimport --file "flights.csv" --type csv --collection "flights" --server.database "fly-time"`
+
+**Fly Time** does not restrict you to strictly use its recommended database instance i.e. `fly-time`. You can configure your own instance by setting up the following environment variables.
+
+- ARANGO_DB_USER
+- ARANGO_DB_PASSWORD
+- ARANGO_DB_NAME
+
+If these environment variables are not set, **Fly Time** will default to `root`, `root`, and `fly-time` for ArangoDB user, password, and database name respectively. 
+
+After setting up the database and environment, we have the **Fly Time** infrastructure ready. Navigate inside the repository's root directory and run `node index.js` to start the **Fly Time**'s flight API server.
 
 ## Fly Time Setup With Docker
 to be filled in later
