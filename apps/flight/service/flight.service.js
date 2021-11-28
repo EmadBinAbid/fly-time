@@ -14,15 +14,18 @@ exports.getFlightsWithLowestTravelTime = function(fromAirport, toAirport, dateOf
     const month = parseInt(date[1])
     const day = parseInt(date[2])
 
+    // The inspiration of this query is taken from ArangoDB's official documentation here: 
+    // https://www.arangodb.com/learn/graphs/pattern-matching/
     const query = `
                     FOR v, e, p IN 2 OUTBOUND @from flights
                     FILTER v._id == @to
                     FILTER p.edges[*].Year ALL == @year
                     FILTER p.edges[*].Month ALL == @month
                     FILTER p.edges[*].Day ALL == @day
+                    FILTER DATE_ADD(p.edges[0].ArrTimeUTC, 20, 'minutes') < p.edges[1].DepTimeUTC
                     LET flightTime = DATE_DIFF(p.edges[0].DepTimeUTC, p.edges[1].ArrTimeUTC, 'i')
                     SORT flightTime ASC
-                    LIMIT 5
+                    LIMIT 10
                     RETURN { flight: p, time: flightTime }
                     `
     const bindVars = {
